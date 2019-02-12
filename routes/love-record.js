@@ -30,7 +30,7 @@ router.get('/imgs', function (req, res) {
     var regex = new RegExp("\\.jpg$|\\.png$");
     var imgs = new Array();
 
-    var files = rd.readSync('../public/images/love-record');
+    var files = rd.readSync('./public/images/love-record');
     files.map(function (str) {
         var file = path.basename(str);
         if (regex.test(file.toLowerCase())) {
