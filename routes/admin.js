@@ -57,7 +57,7 @@ router.post('/love-record/upload', function (req, res, next) {
             var uploadedPath = inputFile.path;
 
             //重名为当前最大的一个数字
-            var files = rd.readSync('../public/images/love-record');
+            var files = rd.readSync('./public/images/love-record');
             var max = 0;
             files.map(function (str) {
                 var file = path.basename(str);
@@ -70,7 +70,7 @@ router.post('/love-record/upload', function (req, res, next) {
                     }
                 }
             });
-            var dstPath = '../public/images/love-record/' + (max + 1) + '.' + inputFile.originalFilename.split('.')[1];
+            var dstPath = './public/images/love-record/' + (max + 1) + '.' + inputFile.originalFilename.split('.')[1];
             fs.rename(uploadedPath, dstPath, function (err) {
                 if (err) {
                     console.log('rename error: ' + err);
